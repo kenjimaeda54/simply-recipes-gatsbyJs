@@ -1,0 +1,104 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  gap: black;
+  max-width: 50%;
+}
+
+.article h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: var(--grey-1100);
+}
+
+.article p {
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 35px;
+  background-color: var(--white);
+  width: 50%;
+  box-shadow: var(--shadow-3);
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form label {
+  font-size: 1.1rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.form input {
+  border-radius: 4px;
+  background-color: var(--grey-50);
+  padding: 7px 17px;
+  margin: 7px 0px;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.form input:focus {
+  outline: 2px solid var(--primary-900);
+  background-color: var(--white);
+}
+
+.form textarea {
+  border-radius: 4px;
+  background-color: var(--grey-50);
+  padding: 7px 17px;
+  margin: 7px 0px;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: var(--black);
+  height: 7rem;
+  width: 100%;
+}
+
+.form textarea:focus {
+  outline: 2px solid var(--primary-900);
+  background-color: var(--white);
+}
+
+.form button {
+  display: flex;
+  padding: 7px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin: 13px 0px;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: var(--white);
+  background-color: var(--primary-500);
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-3);
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: var(--primary-900);
+}
