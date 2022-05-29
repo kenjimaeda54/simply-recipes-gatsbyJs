@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { FiAlignJustify } from "react-icons/fi"
 
 export default function NavBar() {
   return (
