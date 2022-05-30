@@ -6,7 +6,7 @@
   background-color: var(--grey-0);
 }
 
-.container content {
+.container div {
   display: flex;
   justify-content: space-between;
   flex-direction: column;

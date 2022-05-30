@@ -18,20 +18,14 @@ export default function Contact() {
             cold-pressed fanny pack bicycle rights cardigan poke.
           </p>
         </article>
-        <form class={Styles.form}>
-          <div>
-            <label htmlFor="name">Your Name</label>
-            <input id="name" type="text" name="name" />
-          </div>
-          <div>
-            <label htmlFor="email">Your email</label>
-            <input id="email" type="email" name="email" />
-          </div>
-          <div>
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message"></textarea>
-          </div>
-          <button type="submit">Submit</button>
+        <form className={Styles.form}>
+          <label htmlFor="name">Your Name</label>
+          <input id="name" type="text" name="name" />
+          <label htmlFor="email">Your email</label>
+          <input id="email" type="email" name="email" />
+          <label htmlFor="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+          <button type="submit">Submit</button>{" "}
         </form>
       </section>
     </Layout>

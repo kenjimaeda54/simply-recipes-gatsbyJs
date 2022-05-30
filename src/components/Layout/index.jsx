@@ -9,10 +9,10 @@ import * as Styles from "./style.module.css"
 export default function Layout({ children }) {
   return (
     <main className={Styles.container}>
-      <content>
+      <div>
         <NavBar />
         {children}
-      </content>
+      </div>
       <Footer />
     </main>
   )
