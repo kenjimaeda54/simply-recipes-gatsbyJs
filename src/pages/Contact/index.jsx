@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../../components/Layout"
-import * as Styles from "./style.module.css"
+import * as Styles from "./styles.module.css"
 
 export default function Contact() {
   return (

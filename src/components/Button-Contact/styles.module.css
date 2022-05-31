@@ -1,0 +1,13 @@
+.contact {
+  padding: 4px 17px;
+  border-radius: 4px;
+  color: var(--white);
+  background-color: var(--primary-500);
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-3);
+  cursor: pointer;
+}
+
+.contact:hover {
+  background-color: var(--primary-900);
+}
