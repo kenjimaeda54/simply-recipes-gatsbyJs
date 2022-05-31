@@ -1,3 +1,15 @@
+@media screen and (max-width: 850px) {
+  .footer p {
+    font-size: 0.9rem !important;
+  }
+  .footer a {
+    font-size: 1.3rem !important;
+  }
+  .span {
+    font-size: 17px !important;
+  }
+}
+
 .footer {
   display: flex;
   align-items: center;
