@@ -104,13 +104,8 @@ a {
 }
 
 .buttonLink {
-  font-size: 1.7em;
+  font-size: 1.3em;
   line-height: 1.5rem;
   font-weight: 400;
-  color: var(--white);
-}
-.spanContact {
-  font-size: 1.1rem;
-  line-height: 1.9rem;
-  color: var(--white);
+  color: var(--white) !important;
 }

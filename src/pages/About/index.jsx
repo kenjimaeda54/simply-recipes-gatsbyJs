@@ -36,7 +36,8 @@ export default function About() {
           src="../../assets/images/about.jpeg"
           alt="Person pull salt bawl"
           placeholder="blurred"
-          className={Styles.aboutImg}
+          className={Styles.img}
+          as="section"
         />
       </section>
     </Layout>

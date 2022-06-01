@@ -33,17 +33,18 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="About">
+              {/*precisa do barra para ele direcionar sempre url/ se nao pensara em nesting de rota*/}
+              <Link activeClassName={Styles.active} to="/About">
                 About
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="Tags">
+              <Link activeClassName={Styles.active} to="/Tags">
                 Tags
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="Recipes">
+              <Link activeClassName={Styles.active} to="/Recipes">
                 Recipes
               </Link>
             </li>
@@ -57,23 +58,23 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="About">
+              <Link activeClassName={Styles.active} to="/About">
                 About
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="Tags">
+              <Link activeClassName={Styles.active} to="/Tags">
                 Tags
               </Link>
             </li>
             <li>
-              <Link activeClassName={Styles.active} to="Recipes">
+              <Link activeClassName={Styles.active} to="/Recipes">
                 Recipes
               </Link>
             </li>
             <li nav="false">
               <ButtonContact>
-                <Link className={Styles.buttonLink} to="Contact">
+                <Link className={Styles.buttonLink} to="/Contact">
                   Contact
                 </Link>
               </ButtonContact>
@@ -83,7 +84,9 @@ export default function NavBar() {
       </section>
       <div nav="true">
         <ButtonContact>
-          <span className={Styles.spanContact}>Contact</span>
+          <Link to="/Contact" className={Styles.buttonLink}>
+            Contact
+          </Link>
         </ButtonContact>
       </div>
     </div>

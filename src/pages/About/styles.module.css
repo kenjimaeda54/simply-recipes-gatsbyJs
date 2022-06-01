@@ -1,20 +1,21 @@
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 950px) {
   .section {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 50px;
+    gap: 30px;
+    min-height: 100vh;
   }
-  .article {
-    min-width: 100%;
-    margin: 30px 0px;
+  .img {
+    width: 100%;
+    height: 100%; /*para ficar responsivo isso e importante  */
   }
 }
 
 .section {
   display: flex;
   justify-content: space-between;
-  height: 230px;
+  gap: 15px;
+  height: 290px;
 }
 
 .contactLink {
@@ -27,12 +28,12 @@
 .article {
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 10px;
 }
 
 .article h2 {
   font-size: 1.7rem;
-  line-height: 2rem;
+  line-height: 3rem;
   font-weight: 400;
   color: var(--grey-1100);
 }
@@ -45,6 +46,7 @@
   margin-right: 20px;
 }
 
-.aboutImg {
+.img {
   border-radius: 8px;
+  width: 100%;
 }
