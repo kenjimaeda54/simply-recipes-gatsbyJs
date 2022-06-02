@@ -1,15 +1,29 @@
 .container {
   display: flex;
-  flex-direction: column;
-  gap: 13px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container a {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.container a:hover {
+  opacity: 0.8;
 }
 
 .img {
   border-radius: 4px;
   width: 350px;
+  height: 250px;
 }
-
+.article {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
 .article h3 {
+  text-align: left;
   font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.7rem;

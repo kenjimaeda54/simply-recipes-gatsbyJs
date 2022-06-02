@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as Styles from "./styles.module.css"
 
@@ -9,14 +10,20 @@ export default function RecipeList({ recipes = [] }) {
         const { image, title, cookTime, content, id, prepTime } = it
         const dataImage = getImage(image) //isso evita erros caso nao econtrar igames
         return (
-          <Fragment key={id}>
-            <GatsbyImage className={Styles.img} image={dataImage} alt={title} />
+          <Link to={`/${title}`}>
             <article className={Styles.article}>
-              <h3>{title}</h3>
-              <span>Prep: {prepTime}min |</span>{" "}
-              <span>Cook: {cookTime}min</span>
+              <GatsbyImage
+                className={Styles.img}
+                image={dataImage}
+                alt={title}
+              />
+              <div>
+                <h3>{title}</h3>
+                <span>Prep: {prepTime}min |</span>{" "}
+                <span>Cook: {cookTime}min</span>
+              </div>
             </article>
-          </Fragment>
+          </Link>
         )
       })}
     </div>

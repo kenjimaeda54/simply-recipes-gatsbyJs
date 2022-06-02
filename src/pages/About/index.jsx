@@ -1,14 +1,18 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import ButtonContact from "../../components/Button-Contact"
 import Layout from "../../components/Layout"
 import * as Styles from "./styles.module.css"
+import RecipeList from "../../components/RecipeList"
 
 //plugin imagem
 //https://www.gatsbyjs.com/plugins/gatsby-plugin-image
 //https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/
-export default function About() {
+export default function About({ data }) {
+  const {
+    allContentfulRecipes: { nodes },
+  } = data //sempre ao fazer um graphql, em uma page ja e inserido o data de forma automatica
   return (
     <Layout>
       <section className={Styles.section}>
@@ -40,6 +44,33 @@ export default function About() {
           as="section"
         />
       </section>
+      <footer className={Styles.footer}>
+        <h3>Look at this Awesomesouce!</h3>
+        <div className={Styles.recipes}>
+          <RecipeList recipes={nodes} />
+        </div>
+      </footer>
     </Layout>
   )
 }
+export const query = graphql`
+  {
+    allContentfulRecipes(
+      sort: { order: ASC, fields: title }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        id
+        title
+        cookTime
+        prepTime
+        content {
+          tags
+        }
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`

@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../../components/Layout"
 import * as Styles from "./styles.module.css"
 
-export default function Contact() {
+export default function Contact({ data }) {
   return (
     <Layout>
       <section className={Styles.section}>
