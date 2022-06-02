@@ -2,6 +2,7 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import * as Styles from "./home.module.css"
+import { AllRecipes } from "../components/AllRecipes"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <h3>No fluff, Just recipes</h3>
         </div>
       </header>
+      <AllRecipes />
     </Layout>
   )
 }
