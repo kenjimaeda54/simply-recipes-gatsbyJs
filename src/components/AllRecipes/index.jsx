@@ -30,8 +30,10 @@ export function AllRecipes() {
   return (
     <div className={Styles.container}>
       <section>
-        <p className={Styles.title}>Recipes</p>
-        <TagList recipes={nodes} />
+        <p className={Styles.title}>Recipes</p>{" "}
+        <div className={Styles.tags}>
+          <TagList recipes={nodes} />
+        </div>
       </section>
       <section>
         <RecipesList recipes={nodes} />

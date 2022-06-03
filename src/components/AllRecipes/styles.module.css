@@ -1,3 +1,21 @@
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+  .container section {
+    display: flex;
+    flex-direction: column;
+  }
+  .tags {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
 .container {
   display: flex;
   width: 100%;

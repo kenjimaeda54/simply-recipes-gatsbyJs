@@ -46,7 +46,7 @@ export default function About({ data }) {
       </section>
       <footer className={Styles.footer}>
         <h3>Look at this Awesomesouce!</h3>
-        <div className={Styles.recipes}>
+        <div>
           <RecipeList recipes={nodes} />
         </div>
       </footer>
