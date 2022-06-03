@@ -54,3 +54,11 @@
   font-weight: 400;
   color: var(--white);
 }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+  margin: 30px 0px;
+}

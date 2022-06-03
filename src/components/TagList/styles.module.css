@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.container:hover span {
+  color: var(--primary-500);
+}
+.text {
+  color: var(--primary-1100);
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+  font-weight: 100;
+}
+.text::first-letter {
+  text-transform: uppercase;
+}

@@ -1,7 +1,15 @@
+@media screen and (max-width: 850px) {
+  .img {
+    width: 100% !important;
+    height: auto;
+  }
+}
 .container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .container a {
@@ -14,8 +22,8 @@
 
 .img {
   border-radius: 4px;
-  width: 350px;
-  height: 250px;
+  width: 300px;
+  height: 190px;
 }
 .article {
   display: flex;

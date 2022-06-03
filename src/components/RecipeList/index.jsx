@@ -10,7 +10,7 @@ export default function RecipeList({ recipes = [] }) {
         const { image, title, cookTime, content, id, prepTime } = it
         const dataImage = getImage(image) //isso evita erros caso nao econtrar igames
         return (
-          <Link to={`/${title}`}>
+          <Link to={`/${title}`} key={id}>
             <article className={Styles.article}>
               <GatsbyImage
                 className={Styles.img}

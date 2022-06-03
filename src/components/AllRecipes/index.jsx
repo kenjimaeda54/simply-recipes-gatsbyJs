@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import TagList from "../TagList"
 import RecipesList from "../RecipeList"
+import * as Styles from "./styles.module.css"
 
 const query = graphql`
   {
@@ -27,9 +28,14 @@ export function AllRecipes() {
     allContentfulRecipes: { nodes },
   } = useStaticQuery(query)
   return (
-    <>
-      <TagList />
-      <RecipesList recipes={nodes} />
-    </>
+    <div className={Styles.container}>
+      <section>
+        <p className={Styles.title}>Recipes</p>
+        <TagList recipes={nodes} />
+      </section>
+      <section>
+        <RecipesList recipes={nodes} />
+      </section>
+    </div>
   )
 }

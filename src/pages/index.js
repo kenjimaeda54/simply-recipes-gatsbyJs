@@ -19,7 +19,9 @@ export default function Home() {
           <h3>No fluff, Just recipes</h3>
         </div>
       </header>
-      <AllRecipes />
+      <footer className={Styles.footer}>
+        <AllRecipes />
+      </footer>
     </Layout>
   )
 }

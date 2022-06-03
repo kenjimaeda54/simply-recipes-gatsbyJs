@@ -1,8 +1,14 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
 import * as Styles from "./styles.module.css"
+import RecipeList from "../../components/RecipeList"
 
 export default function Contact({ data }) {
+  const {
+    allContentfulRecipes: { nodes },
+  } = data //sempre ao fazer um graphql, em uma page ja e inserido o data de forma automatica
+
   return (
     <Layout>
       <section className={Styles.section}>
@@ -28,6 +34,34 @@ export default function Contact({ data }) {
           <button type="submit">Submit</button>{" "}
         </form>
       </section>
+      <footer className={Styles.footer}>
+        <h3>Look at this Awesomesouce!</h3>
+        <div className={Styles.recipes}>
+          <RecipeList recipes={nodes} />
+        </div>
+      </footer>
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allContentfulRecipes(
+      sort: { order: ASC, fields: title }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        id
+        title
+        cookTime
+        prepTime
+        content {
+          tags
+        }
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`
