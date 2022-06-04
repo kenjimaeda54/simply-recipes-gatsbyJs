@@ -1,3 +1,42 @@
+@media screen and (max-width: 850px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sectionLeft {
+    order: 1;
+    width: 100vw;
+  }
+  .sectionRight {
+    order: 0;
+    margin-top: 65vh;
+    flex-wrap: wrap;
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 350px !important;
+    position: absolute;
+    top: 15vh;
+  }
+  .line {
+    width: 60%;
+  }
+  .instruction {
+    padding: 0px 45px !important;
+  }
+  .instruction article span {
+    width: 40% !important;
+  }
+  .tags {
+    flex-wrap: wrap;
+  }
+}
+
 .container {
   display: flex;
   gap: 35px;
