@@ -1,0 +1,177 @@
+.container {
+  display: flex;
+  gap: 35px;
+}
+
+.sectionLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+.sectionRight {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.image {
+  width: 575px;
+  border-radius: 4px;
+  height: 450px;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.instruction article {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 1.7em;
+  line-height: 2.3rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.instruction article span {
+  font-size: 1em;
+  line-height: 2.3rem;
+  font-weight: 400;
+  color: var(--primary-500);
+  width: 10%;
+}
+
+.instruction p {
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  font-weight: 400;
+  color: var(--grey-900);
+}
+
+.line {
+  width: 90%;
+  height: 2px;
+  background-color: var(--grey-400);
+}
+
+.title {
+  font-size: 1.9em;
+  line-height: 2.3rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.sectionRight p {
+  font-size: 1.2em;
+  line-height: 1.7rem;
+  font-weight: 400;
+  color: var(--grey-1000);
+}
+
+.prepare {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.prepare div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.prepare div span {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.prepare div p {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--grey-800);
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tags span {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.buttonTag {
+  display: flex;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background-color: var(--primary-400);
+  box-shadow: var(--shadow-2);
+}
+
+.buttonTag a {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+}
+
+.buttonTag:hover {
+  opacity: 0.9;
+}
+
+.buttonTag a::first-letter {
+  text-transform: uppercase;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.ingredients div {
+  border-bottom: 1px solid var(--grey-400);
+  padding: 20px 0px;
+}
+.ingredients div p {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.tools div {
+  border-bottom: 1px solid var(--grey-400);
+  padding: 20px 0px;
+}
+
+.tools div p {
+  font-size: 1em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: var(--primary-500);
+}
+
+.tools div p:first-letter {
+  text-transform: uppercase;
+}

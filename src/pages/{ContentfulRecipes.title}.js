@@ -1,5 +1,9 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Layout from "../components/Layout"
+import * as Styles from "./contentful.module.css"
 
 //https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 //essa rota sera automático a propriedade ContentfulRecipes.title  e importante
@@ -12,9 +16,92 @@ import { graphql } from "gatsby"
 //por padrão o gatsby envia props para cada rota
 
 export default function RecipeDetails({ data }) {
-  console.log(data)
-
-  return <div>ola</div>
+  const { nodes } = data.allContentfulRecipes
+  return (
+    <Layout>
+      {nodes.map(it => {
+        const {
+          content: { ingredients, instructions, tags, tools },
+          description: { description },
+          image,
+          cookTime,
+          prepTime,
+          servings,
+          title,
+        } = it
+        const pathImage = getImage(image)
+        const id = Math.round(Math.random * 1000)
+        return (
+          <div className={Styles.container} key={id}>
+            <section className={Styles.sectionLeft}>
+              <GatsbyImage
+                alt={title}
+                className={Styles.image}
+                image={pathImage}
+              />
+              <div className={Styles.instruction}>
+                <h3 className={Styles.subtitle}>Instructions </h3>
+                {instructions.map((title, index) => (
+                  <div key={`${index}-${id}`}>
+                    <article>
+                      <span>STEP {index + 1}</span>
+                      <div className={Styles.line} />
+                    </article>
+                    <p>{title}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className={Styles.sectionRight}>
+              <h2 className={Styles.title}> {title}</h2>
+              <p>{description}</p>
+              <article className={Styles.prepare}>
+                <div>
+                  <BsClock size={23} />
+                  <span>Prep Time</span>
+                  <p>{prepTime} min. </p>
+                </div>
+                <div>
+                  <BsClockHistory size={23} />
+                  <span>Cook Time</span>
+                  <p> {cookTime} min.</p>
+                </div>
+                <div>
+                  <BsPeople size={23} />
+                  <span>Serving</span>
+                  <p> {servings}</p>
+                </div>
+              </article>
+              <div className={Styles.tags}>
+                <span>Tags:</span>
+                {tags.map((it, index) => (
+                  <div key={`${index}-${id}`} className={Styles.buttonTag}>
+                    <Link to={`/${it}`}>{it}</Link>
+                  </div>
+                ))}
+              </div>
+              <article className={Styles.ingredients}>
+                <h3 className={Styles.subtitle}>Ingredients</h3>
+                {ingredients.map((it, index) => (
+                  <div key={`${index}-${id}`}>
+                    <p>{it} </p>
+                  </div>
+                ))}
+              </article>
+              <div className={Styles.tools}>
+                <h3 className={Styles.subtitle}>Tools</h3>
+                {tools.map((it, index) => (
+                  <div key={`${index}-${id}`}>
+                    <p>{it}</p>{" "}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        )
+      })}
+    </Layout>
+  )
 }
 
 //title vai ser inserido dinamico pelo context do props do gatsby
