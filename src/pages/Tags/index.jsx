@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import slugify from "slugify"
 import Layout from "../../components/Layout"
 import { listTag } from "../../utils/listTag"
 import * as Styles from "./styles.module.css"
@@ -12,8 +13,9 @@ export default function Recipes({ data }) {
         {allTags.map(tag => {
           const [text, quantity] = tag
           const id = `${Math.round(Math.random() * 3000)}-${text}`
+          const slug = slugify(text, { lower: true })
           return (
-            <Link key={id} to={`/${text}`}>
+            <Link key={id} to={`/tags/${slug}`}>
               <article>
                 <span className={Styles.text}>{text}</span>
                 <span className={Styles.text}>{quantity} recipe</span>

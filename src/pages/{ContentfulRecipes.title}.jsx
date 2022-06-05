@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs"
+import slugify from "slugify"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import * as Styles from "./contentful.module.css"
@@ -74,11 +75,14 @@ export default function RecipeDetails({ data }) {
               </article>
               <div className={Styles.tags}>
                 <span>Tags:</span>
-                {tags.map((it, index) => (
-                  <div key={`${index}-${id}`} className={Styles.buttonTag}>
-                    <Link to={`/${it}`}>{it}</Link>
-                  </div>
-                ))}
+                {tags.map((it, index) => {
+                  const slug = slugify(it, { lower: true })
+                  return (
+                    <div key={`${index}-${id}`} className={Styles.buttonTag}>
+                      <Link to={`/tags/${slug}`}>{it}</Link>
+                    </div>
+                  )
+                })}
               </div>
               <article className={Styles.ingredients}>
                 <h3 className={Styles.subtitle}>Ingredients</h3>
