@@ -24,14 +24,18 @@ export default function Contact({ data }) {
             cold-pressed fanny pack bicycle rights cardigan poke.
           </p>
         </article>
-        <form className={Styles.form}>
+        <form
+          action="https://formspree.io/f/xjvlzboe"
+          method="POST"
+          className={Styles.form}
+        >
           <label htmlFor="name">Your Name</label>
           <input id="name" type="text" name="name" />
           <label htmlFor="email">Your email</label>
           <input id="email" type="email" name="email" />
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message"></textarea>
-          <button type="submit">Submit</button>{" "}
+          <button type="submit">Submit</button>
         </form>
       </section>
       <footer className={Styles.footer}>

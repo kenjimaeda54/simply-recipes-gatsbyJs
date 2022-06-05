@@ -47,5 +47,18 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Inter",
+              variants: ["100", "300", "400", "500", "600", "700"],
+            },
+          ],
+        },
+      },
+    },
   ],
 }
