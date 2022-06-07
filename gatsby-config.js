@@ -20,9 +20,8 @@ require("dotenv").config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description:
-      "Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.",
+    title: `Simply recipes`,
+    description: "Simple site consult recipes",
     data: [
       { name: "Fulano", age: "20" },
       { name: "Ciclano", age: "30" },
@@ -60,5 +59,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }

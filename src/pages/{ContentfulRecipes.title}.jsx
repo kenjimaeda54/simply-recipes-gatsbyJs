@@ -5,6 +5,7 @@ import slugify from "slugify"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import * as Styles from "./contentful.module.css"
+import Seo from "../components/Seo"
 
 //https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 //essa rota sera automático a propriedade ContentfulRecipes.title  e importante
@@ -34,6 +35,7 @@ export default function RecipeDetails({ data }) {
         const id = Math.round(Math.random * 1000)
         return (
           <div className={Styles.container} key={id}>
+            <Seo titlePage={title} descriptionPage={description} />
             <section className={Styles.sectionLeft}>
               <GatsbyImage
                 alt={title}

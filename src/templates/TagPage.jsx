@@ -3,12 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import RecipeList from "../components/RecipeList"
 import * as Styles from "./styles.module.css"
+import Seo from "../components/Seo"
 
 export default function TagsPage(prop) {
   const recipe = prop.data.allContentfulRecipes.nodes
   const titleTag = prop.pageContext.tag
   return (
     <Layout>
+      <Seo titlePage={titleTag} />
       <h3 className={Styles.subtitle}>{titleTag}</h3>
       <RecipeList recipes={recipe} />
     </Layout>

@@ -3,10 +3,12 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import * as Styles from "./home.module.css"
 import { AllRecipes } from "../components/AllRecipes"
+import Seo from "../components/Seo"
 
 export default function Home() {
   return (
     <Layout>
+      <Seo titlePage="Home" descriptionPage="This home page" />
       <header className={Styles.header}>
         <StaticImage
           src="../assets/images/main.jpeg"

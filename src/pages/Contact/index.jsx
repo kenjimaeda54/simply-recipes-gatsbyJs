@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
 import * as Styles from "./styles.module.css"
 import RecipeList from "../../components/RecipeList"
+import Seo from "../../components/Seo"
 
 export default function Contact({ data }) {
   const {
@@ -11,6 +12,7 @@ export default function Contact({ data }) {
 
   return (
     <Layout>
+      <Seo titlePage="Contact" />
       <section className={Styles.section}>
         <article className={Styles.article}>
           <h2>Want To Get In Touch?</h2>

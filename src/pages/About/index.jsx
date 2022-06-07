@@ -5,6 +5,7 @@ import ButtonContact from "../../components/Button-Contact"
 import Layout from "../../components/Layout"
 import * as Styles from "./styles.module.css"
 import RecipeList from "../../components/RecipeList"
+import Seo from "../../components/Seo"
 
 //plugin imagem
 //https://www.gatsbyjs.com/plugins/gatsby-plugin-image
@@ -15,6 +16,7 @@ export default function About({ data }) {
   } = data //sempre ao fazer um graphql, em uma page ja e inserido o data de forma automatica
   return (
     <Layout>
+      <Seo titlePage="About" />
       <section className={Styles.section}>
         <article className={Styles.article}>
           <h2>I'm baby coloring book poke taxidermy</h2>
