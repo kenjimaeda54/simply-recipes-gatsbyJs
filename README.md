@@ -5,15 +5,15 @@ Sofwtare construido em gatsby,saite de receitas
 Aprender o uso de gatsby para constuir saites SSG
 
 ## Feature
-- Para uso de css global em gatbsy precisa importar em um arquivo que se repete,no meu caso foi o arquivo Layout
-- Para lidar com paginas dinamicas atraves da url usei o [slug](https://www.npmjs.com/package/slug)
-- Essencial o uso do slug para evitar carcter especiais na url
-- Tem duas abordagem para arquivos dinamicos, usando api [file system route](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
+- Para uso de css global em gatbsy precisa importar em um arquivo que se repete, no meu caso foi o arquivo Layout
+- Para lidar com páginas dinâmicas através de um evento  essencial o uso do [slug](https://www.npmjs.com/package/slug)
+- Slug para evitar carácter especiais na url
+- Tem duas abordagens para arquivos dinâmicos, usando api [file system route](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
 - E outra abordagem  [node](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/)
-- Na abordagem pelo file system routes, vai se referenciar pelo grapql, no saite estava usando CMS do [contentful](https://www.gatsbyjs.com/plugins/gatsby-source-contentful/),este CMS fornece um plugin, grapql neste caso reconhece ContentfulRecipes ,por isso o arquivo {Contentful.title}.jsx
-- Abordagem pelo system e atraves dos recuross disnponiveis no graqpl
+- Na abordagem pelo file system routes, vai se referenciar pelo grapql, no saite estava usando CMS do [contentful](https://www.gatsbyjs.com/plugins/gatsby-source-contentful/), este CMS fornece um plugin, grapql neste caso reconhece ContentfulRecipes ,por isso o arquivo {Contentful.title}.jsx
+- Abordagem pelo system e através dos recursos disponíveis no graqpl
 - Na abordagem do node js utiliza  a palavra reservada createPage
-- Um dos recursos do node e componente, neste caaso caminho do arquivo que vai gerar as paginas dinamicas
+- Um dos recursos do node e componente, neste casso caminho do arquivo que vai gerar as paginas dinâmicas
 - Preferencia e caminho absoluto para indicar os arquivos
 
 ```typescript
@@ -57,13 +57,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
 ##
 
-- Grapql usa em cada pagina variavreis de contenxto ocultas
-- Podemos acessar eleas para relizar logica.
-- Exeplo de uso se dentro de uma pagina consultar uma query e exportar ela,o corpo da funcao principal tem acesso a essa consulta
-- Em cenarios que nao sao paginas , precisa o uso do useStaticQuery
+- Grapql usa em cada página variáveis de contenxto ocultas
+- Podemos acessar elas para realizar logica.
+- Exemplo: Caso  consultar uma query e exportar, corpo da função principal tem acesso a essa consulta
+- Em cenários que nao  são paginas, precisa o uso do useStaticQuery
 
 
-```typesscript
+```typescript
 //paginas
 
 export default function About({ data }) {
@@ -201,6 +201,84 @@ export const query = graphql`
   }
 ```
 
+##
+- Para lidar com imagens existe um plugin muito interessante
+- [Gatsby image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image) existe duas abordagens,o uso do StaticImage e o GatsbyImage
+- StaticImage e para uso de imagens locais e o GabsyImage para uso dinâmico
+- Ambos normalmente usaremos sua classe para determinar o comportamento
+- GatsbyImage normalmente trabalha em conjunto com o getImage, interessante dessa abordagem que evitamos quebrar o sofwatre caso não encontrar imagem
+- Outro recurso interessante e o uso da propriedade Layout, existe constrainted,fullWidth,fixed
+- Constrainted se molda conforme o pai,fullWidth ocupa espaço todo e fixed literalmente fixo
+
+
+```typescript
+//fotos dinamicas
+export default function RecipeList({ recipes = [] }) {
+  return (
+    <div className={Styles.container}>
+      {recipes.map(it => {
+        const { image, title, cookTime, content, id, prepTime } = it
+        const dataImage = getImage(image) //isso evita erros caso nao econtrar igames
+        const slug = slugify(title, { lower: true })
+        return (
+          <Link to={`/${slug}`} key={id}>
+            <article className={Styles.article}>
+              <GatsbyImage
+                className={Styles.img}
+                image={dataImage}
+                alt={title}
+              />
+              <div>
+                <h3>{title}</h3>
+                <span>Prep: {prepTime}min |</span>{" "}
+                <span>Cook: {cookTime}min</span>
+              </div>
+            </article>
+          </Link>
+        )
+      })}
+    </div>
+  )
+}
+
+//===========================
+//fotos estaticas
+
+export default function Home() {
+  return (
+    <Layout>
+      <Seo titlePage="Home" descriptionPage="This home page" />
+      <header className={Styles.header}>
+        <StaticImage
+          src="../assets/images/main.jpeg"
+          alt="main image of the site"
+          className={Styles.headerImage}
+          layout="fullWidth"
+        />
+        <div className={Styles.title}>
+          <h1>Simply Recipes</h1>
+          <h3>No fluff, Just recipes</h3>
+        </div>
+      </header>
+      <footer className={Styles.footer}>
+        <AllRecipes />
+      </footer>
+    </Layout>
+  )
+}
+
+
+
+
+
+```
+
+##
+- Para lidar com fontes de forma performática e interessante o uso do [gatsby web fonts](https://www.gatsbyjs.com/plugins/gatsby-plugin-webfonts/?=gatsby%20plugin%20web%20fonts)
+- Com uso desse plugin não precisara fazer uma requisição no servidor para ter as fontes disponíveis no site
+- Para uso do  [contentful](https://www.gatsbyjs.com/plugins/gatsby-source-contentful/) existe um plugin ele espera no escopo api key
+- Para uso de [variáveis de ambiente](https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/) que sao ideias para armazenar  api key, usamos o .env, no gatsby o arquivo denominado .env.development ou .env.production
+- Existe uma maneira de compartilhar informações com todo o software inclusive consultar no graqpl para isso usamos o [metadaTa](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/)
 
 
 
