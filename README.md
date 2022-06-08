@@ -1,5 +1,6 @@
 # Simply recipes
-Sofwtare construido em gatsby,saite de receitas
+Sofwtare construido em gatsby,saite de receitas</br>
+Link: https://simply-recipes-kvm.netlify.app/
 
 ## Motivacao
 Aprender o uso de gatsby para constuir saites SSG
